@@ -85,9 +85,11 @@ Smart-Roads-Guard/
 │
 ├── images/
 └── README.md
+```
 
+ذذذ`
+ذذ
 ---
-
 ## Future Improvements
 * Develop a mobile application.
 * Deploy the model on embedded devices.
