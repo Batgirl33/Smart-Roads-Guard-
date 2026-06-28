@@ -58,16 +58,15 @@ The dataset was collected and prepared for obstacle detection. It was cleaned, o
 ---
 
 ## Project Structure
-Project Structure
+
+```text
 Smart-Roads-Guard/
-│
-├── Dataset/
-├── Notebooks/
-├── Images/
-├── Results/
-├── Models/
+├── CODE.ipynb
+├── MainCode.ipynb
 ├── README.md
-└── requirements.txt
+└── Other project files
+```
+
 
 ---
 
