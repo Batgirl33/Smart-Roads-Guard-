@@ -33,7 +33,7 @@ Smart Roads Guard is a graduation project designed to improve road safety by det
 
 ## Dataset
 
-The dataset was collected and prepared for obstacle detection. It was cleaned, organized, and annotated to train the YOLOv8 model for recognizing different types of road obstacles.
+The dataset was collected and prepared form many datasets.It was cleaned, organized, and annotated to train the YOLOv8 model for recognizing different types of road obstacles.
 
 ---
 
@@ -59,13 +59,33 @@ The dataset was collected and prepared for obstacle detection. It was cleaned, o
 
 ## Project Structure
 
-```text
 Smart-Roads-Guard/
-├── CODE.ipynb
-├── MainCode.ipynb
-├── README.md
-└── Other project files
-```
+│
+├── Website/
+│   ├── img/
+│   ├── includes/
+│   ├── layout/
+│   ├── activate_page.php
+│   ├── add_report.php
+│   ├── alerts.php
+│   ├── connect.php
+│   ├── edit_report.php
+│   ├── forget_password.php
+│   ├── homepage.php
+│   ├── index.php
+│   ├── login.php
+│
+├── YOLO/
+│   ├── metadata/
+│   ├── static/
+│   ├── templates/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── ...
+│
+├── images/
+│
+└── README.md
 
 
 ---
