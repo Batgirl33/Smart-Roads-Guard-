@@ -87,8 +87,7 @@ Smart-Roads-Guard/
 └── README.md
 ```
 
-ذذذ`
-ذذ
+
 ---
 ## Future Improvements
 * Develop a mobile application.
