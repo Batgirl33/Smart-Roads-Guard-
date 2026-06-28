@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Object Detector Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="text-center mb-4 display-4 text-primary">Smart Object Detector</h1>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 col-md-8 col-sm-12">
+        <div id="uploadContainer" class="upload-container">
+          <input type="file" id="inputFile" accept="video/*,image/*" class="d-none">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <h5>Drag & Drop or Click to Upload</h5>
+          <p class="text-muted">Supported: MP4, AVI, MOV, JPG, PNG</p>
+          <div class="mt-3">
+            <label for="confidenceSlider" class="form-label">
+              Detection Confidence: <span id="confidenceValue">50%</span>
+            </label>
+            <input type="range" class="form-range" id="confidenceSlider" min="0" max="100" value="50">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="previewSection" class="row mb-4 d-none">
+      <div class="col-md-8 mb-3">
+        <div class="card p-3">
+          <div id="mediaWrapper" class="position-relative"></div>
+          <div id="detectionTimeline" class="detection-timeline mt-3 d-none"></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card stats-card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Detection Stats</h5>
+            <ul id="detectionStats" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+        <div class="card stats-card">
+          <div class="card-body">
+            <h5 class="card-title">Log</h5>
+            <div id="detectionLog" class="log-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="processingModal" tabindex="-1" aria-labelledby="processingModalLabel" aria-hidden="true" data-bs-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="processingModalLabel">Processing Video</h5>
+          </div>
+          <div class="modal-body text-center">
+            <div class="mb-3">
+              <div class="progress">
+                <div id="processingProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:0%"></div>
+              </div>
+              <p id="processingStatus" class="mt-2">Starting process...</p>
+            </div>
+            <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="alertContainer" class="alert-container"></div>
+    <div id="loadingOverlay" class="loading-overlay d-none">
+      <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+    </div>
+  </div>
+
+  <template id="errorTemplate">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error:</strong> <span class="error-message"></span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

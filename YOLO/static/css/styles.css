@@ -1,0 +1,308 @@
+/* Root theme colors */
+:root {
+  --primary: #2563EB;
+  --success: #16A34A;
+  --info: #3B82F6;
+  --danger: #DC2626;
+  --warning: #FBBF24;
+  --light: #F3F4F6;
+  --dark: #1F2937;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--light);
+}
+
+/* Upload container styles */
+.upload-container {
+  border: 3px dashed var(--primary);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #fff;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.upload-container:hover {
+  border-color: var(--success);
+  background: rgba(22, 162, 74, 0.05);
+  transform: scale(1.02);
+}
+
+.upload-container.dragover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: var(--info);
+}
+
+.upload-icon {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Detection timeline */
+.detection-timeline {
+  position: relative;
+  height: 60px;
+  background: #fff;
+  border: 1px solid #CBD5E1;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.detection-marker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--danger);
+  border-radius: 50%;
+  transition: transform 0.2s, background-color 0.2s;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.detection-marker:hover {
+  transform: translateY(-50%) scale(1.5);
+  background-color: var(--warning);
+  z-index: 20;
+}
+
+.timeline-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.timeline-progress {
+  position: absolute;
+  height: 2px;
+  background-color: var(--info);
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* Card styles */
+.stats-card, .chart-card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100%;
+}
+
+.stats-card .card-title, .chart-card .card-title {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.log-container {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #CBD5E1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.log-entry {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f8fafc;
+  border-left: 3px solid var(--info);
+  font-size: 0.9rem;
+}
+
+/* Alert container */
+.alert-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050;
+  max-width: 350px;
+}
+
+.alert {
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1040;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 768px) {
+  .upload-container {
+    padding: 2rem 1rem;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+  }
+  
+  .detection-timeline {
+    height: 40px;
+  }
+  
+  .log-container {
+    max-height: 150px;
+  }
+  
+  .alert-container {
+    max-width: 90%;
+    right: 5%;
+    left: 5%;
+  }
+}
+
+/* Animation for markers */
+@keyframes pulse {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.5); background-color: var(--warning); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+.detection-marker.active {
+  animation: pulse 1s infinite;
+}
+
+/* Custom scrollbar for log container */
+.log-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.log-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.log-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.log-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Processing modal styles */
+#processingModal .progress {
+  height: 20px;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  overflow: hidden;
+}
+
+#processingProgress {
+  background-color: var(--info);
+  transition: width 0.3s ease;
+}
+
+#processingStatus {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Add these styles to your existing styles.css file */
+
+/* Video player container */
+#mediaWrapper {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  min-height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Make video fill container */
+#mediaDisplay {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  display: block;
+  background: #000;
+}
+
+/* Play button styling */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background-color: rgba(37, 99, 235, 0.9);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.play-button:hover {
+  background-color: rgba(37, 99, 235, 1);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.play-button i {
+  margin-right: 8px;
+}
+
+/* Timeline improvements */
+.detection-timeline {
+  background-color: #f1f1f1;
+  height: 40px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.detection-marker {
+  width: 8px;
+  height: 16px;
+  background-color: #dc2626;
+  top: 12px;
+}
+
+/* Improve stats display */
+.stats-card {
+  min-height: 200px;
+}
+
+/* Ensure video controls are visible */
+video::-webkit-media-controls {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix for Safari */
+video::-webkit-media-controls-enclosure {
+  overflow: visible !important;
+}
