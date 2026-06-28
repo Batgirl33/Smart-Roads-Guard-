@@ -60,33 +60,10 @@ The dataset was collected and prepared form many datasets.It was cleaned, organi
 ## Project Structure
 
 Smart-Roads-Guard/
-│
 ├── Website/
-│   ├── img/
-│   ├── includes/
-│   ├── layout/
-│   ├── activate_page.php
-│   ├── add_report.php
-│   ├── alerts.php
-│   ├── connect.php
-│   ├── edit_report.php
-│   ├── forget_password.php
-│   ├── homepage.php
-│   ├── index.php
-│   ├── login.php
-│
 ├── YOLO/
-│   ├── metadata/
-│   ├── static/
-│   ├── templates/
-│   ├── app.py
-│   ├── requirements.txt
-│   └── ...
-│
-├── images/
-│
+├── Images/
 └── README.md
-
 
 ---
 
