@@ -96,8 +96,5 @@ Smart-Roads-Guard/
 
 ---
 
-## Author
 
-**Batool Alsaffar**
-Bachelor of Computer Information Systems
 
